@@ -5,8 +5,10 @@ import { Check, ArrowUpRight, Zap } from 'lucide-react';
 const plans = [
   {
     name: 'Starter',
-    price: '$99',
-    period: '/mo',
+    price: '7,500',
+    currency: 'LKR',
+    originalPrice: '10,000 LKR',
+    period: '',
     description: 'Perfect for small businesses getting started online.',
     features: ['1 Page Landing Site', 'Responsive Design', 'Basic SEO Setup', 'Email Support'],
     cta: 'Get Started',
@@ -14,8 +16,10 @@ const plans = [
   },
   {
     name: 'Professional',
-    price: '$199',
-    period: '/mo',
+    price: '17,500',
+    currency: 'LKR',
+    originalPrice: '20,000 LKR',
+    period: '',
     description: 'Everything you need to grow your digital presence.',
     features: ['Up to 5 Pages', 'Premium Animations', 'Advanced SEO', 'Priority Support', 'Custom Domain'],
     cta: 'Choose Pro',
@@ -23,8 +27,9 @@ const plans = [
     badge: 'Most Popular',
   },
   {
-    name: 'Enterprise',
+    name: 'Custom',
     price: 'Custom',
+    currency: '',
     period: '',
     description: 'For large-scale businesses with custom requirements.',
     features: ['Unlimited Pages', 'E-commerce Integration', 'Custom Backend', '24/7 Dedicated Support', 'Dedicated Account Manager'],
@@ -89,9 +94,19 @@ export default function Pricing() {
               {plan.name}
             </h3>
 
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="font-display text-5xl font-bold">{plan.price}</span>
-              {plan.period && <span className="text-[#555] font-mono text-sm">{plan.period}</span>}
+            <div className="flex flex-col mb-4">
+              <div className="flex items-baseline gap-2">
+                <span className="font-display text-4xl md:text-5xl font-bold">{plan.price}</span>
+                {plan.currency && <span className="text-[#999] font-mono text-sm">{plan.currency}</span>}
+                {plan.period && <span className="text-[#555] font-mono text-sm">{plan.period}</span>}
+              </div>
+              {plan.originalPrice ? (
+                <div className="text-sm font-mono text-[#555] line-through mt-1">
+                  {plan.originalPrice}
+                </div>
+              ) : (
+                <div className="h-5 mt-1" />
+              )}
             </div>
 
             <p className="text-sm text-[#555] mb-8 leading-relaxed">{plan.description}</p>

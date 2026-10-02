@@ -34,18 +34,7 @@ export default function Hero({ isLoading }) {
         >
           <span className="block">High-Performance</span>
           <span className="block mt-2">
-            Websites by{' '}
-            <span className="relative inline-block">
-              <span className="text-[#e4ff1a]">Motion</span>
-              <span className="text-outline">Nex</span>
-              {/* Underline accent */}
-              <motion.span
-                className="absolute -bottom-2 left-0 h-[3px] bg-[#e4ff1a]"
-                initial={{ width: 0 }}
-                animate={{ width: isLoading ? 0 : '100%' }}
-                transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              />
-            </span>
+            Websites
           </span>
         </motion.h1>
 

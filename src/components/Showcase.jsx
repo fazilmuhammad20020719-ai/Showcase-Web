@@ -71,6 +71,7 @@ export default function Showcase({ isLoading }) {
                 className="group relative cursor-pointer"
                 onMouseEnter={() => setHoveredId(demo.id)}
                 onMouseLeave={() => setHoveredId(null)}
+                onClick={() => demo.link && window.open(demo.link, '_blank', 'noopener,noreferrer')}
               >
                 <div className="corner-brackets relative overflow-hidden aspect-video bg-[#111]">
                   <img

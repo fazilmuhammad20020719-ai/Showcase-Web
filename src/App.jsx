@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] font-sans overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#0a0a0a] bg-grid-lines text-[#f0f0f0] font-sans overflow-x-hidden relative">
       <Preloader isLoading={isLoading} />
 
       <Header />

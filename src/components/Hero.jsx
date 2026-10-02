@@ -30,7 +30,7 @@ export default function Hero({ isLoading }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 30 : 0 }}
           transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[0.95] mb-6"
+          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[0.95] mb-6"
         >
           <span className="block">High-Performance</span>
           <span className="block mt-2">

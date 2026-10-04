@@ -93,7 +93,7 @@ export default function LanguageSelector() {
 
       {/* Dropdown Panel */}
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-56 bg-[#111] border border-[#2a2a2a] shadow-[0_10px_40px_rgba(0,0,0,0.6)] overflow-hidden"
+        <div className="absolute top-full left-0 lg:left-auto lg:right-0 mt-2 w-56 bg-[#111] border border-[#2a2a2a] shadow-[0_10px_40px_rgba(0,0,0,0.6)] overflow-hidden"
           style={{ zIndex: 9999 }}
         >
           {/* Search */}

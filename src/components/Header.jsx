@@ -78,6 +78,14 @@ export default function Header() {
               {item}
             </a>
           ))}
+          <div className="flex items-center justify-between pt-5 gap-4">
+            <LanguageSelector />
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              <button className="px-5 py-2.5 text-xs font-mono tracking-[0.15em] uppercase bg-[#e4ff1a] text-[#0a0a0a] font-bold hover:bg-[#d4ef10] transition-colors duration-300 whitespace-nowrap">
+                Start Project
+              </button>
+            </a>
+          </div>
         </motion.div>
       )}
     </header>

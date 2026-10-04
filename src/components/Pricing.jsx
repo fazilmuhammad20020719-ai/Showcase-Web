@@ -125,17 +125,17 @@ export default function Pricing() {
       </div>
 
       {/* Bottom note */}
-      <div className="mt-16 bg-[#111] border border-[#2a2a2a] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
-        <div className="absolute top-0 left-0 w-2 h-full bg-[#e4ff1a]" />
+      <div className="mt-16 bg-[#111] border border-[#2a2a2a] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group shadow-[0_0_30px_rgba(228,255,26,0.05)] hover:shadow-[0_0_50px_rgba(228,255,26,0.15)] transition-shadow duration-500 rounded-sm">
+        <div className="absolute top-0 left-0 w-2 h-full bg-[#e4ff1a] shadow-[0_0_15px_rgba(228,255,26,0.8)]" />
         <div>
           <h4 className="text-xl font-bold text-white mb-2">Need a custom quote or have more details?</h4>
           <p className="text-[#888] font-mono text-sm max-w-2xl">
-            Fill out our project discovery form below. Our team reviews submissions constantly and will connect with you <span className="text-[#e4ff1a] font-bold">within 2 hours</span>.
+            Fill out our project discovery form below. Our team reviews submissions constantly and will connect with you <span className="text-[#e4ff1a] font-bold drop-shadow-[0_0_8px_rgba(228,255,26,0.5)]">within 2 hours</span>.
           </p>
         </div>
         <a 
           href="#contact" 
-          className="shrink-0 px-6 py-4 bg-[#2a2a2a] text-white font-mono text-xs font-bold tracking-[0.15em] uppercase hover:bg-[#e4ff1a] hover:text-[#0a0a0a] transition-colors"
+          className="shrink-0 px-8 py-4 bg-[#e4ff1a]/10 border border-[#e4ff1a]/30 text-[#e4ff1a] font-mono text-xs font-bold tracking-[0.15em] uppercase hover:bg-[#e4ff1a] hover:text-[#0a0a0a] transition-all hover:shadow-[0_0_20px_rgba(228,255,26,0.4)]"
         >
           Fill The Form
         </a>

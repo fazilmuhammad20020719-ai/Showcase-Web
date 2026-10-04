@@ -25,8 +25,14 @@ export default function Footer() {
 
         {/* Footer bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center">
-            <img src="/LOGO.png" alt="MotionNex Logo" className="h-32 md:h-40 w-auto object-contain" />
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+            <img src="/LOGO.png" alt="MotionNex Logo" className="h-24 md:h-32 w-auto object-contain" />
+            <div className="flex flex-col items-center md:items-start md:border-l border-[#2a2a2a] md:pl-6">
+              <span className="text-white font-bold text-lg tracking-wide mb-1">MotionNex</span>
+              <a href="mailto:motionnexstudio@gmail.com" className="text-[#3b82f6] font-mono text-xs hover:text-[#e4ff1a] transition-colors">
+                motionnexstudio@gmail.com
+              </a>
+            </div>
           </div>
 
           {/* Footer links */}
@@ -46,17 +52,10 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-10 pt-6 border-t border-[#1a1a1a] flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-10 pt-6 border-t border-[#1a1a1a] flex justify-center items-center">
           <p className="text-[0.65rem] font-mono tracking-[0.15em] uppercase text-[#444]">
             © 2026 MotionNex. All Rights Reserved.
           </p>
-          <div className="flex gap-6">
-            {['Privacy', 'Terms', 'Cookies'].map((link) => (
-              <a key={link} href="#" className="text-[0.65rem] font-mono tracking-[0.15em] uppercase text-[#444] hover:text-[#e4ff1a] transition-colors">
-                {link}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

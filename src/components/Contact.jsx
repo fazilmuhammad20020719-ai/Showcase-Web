@@ -31,7 +31,27 @@ export default function Contact() {
   ];
 
   const budgetOptions = [
-    'Less than $1,000', '$1k - $5k', '$5k - $10k', 'Over $10k'
+    {
+      id: 'starter',
+      label: 'Starter Plan',
+      price: '7,500 LKR',
+      originalPrice: '10,000 LKR',
+      value: 'Starter (7,500 LKR)'
+    },
+    {
+      id: 'pro',
+      label: 'Professional',
+      price: '17,500 LKR',
+      originalPrice: '20,000 LKR',
+      value: 'Professional (17,500 LKR)'
+    },
+    {
+      id: 'custom',
+      label: 'Custom Budget',
+      price: '',
+      originalPrice: '',
+      value: 'Custom Budget'
+    }
   ];
 
   const timelineOptions = [
@@ -61,7 +81,7 @@ export default function Contact() {
     setIsSubmitting(true);
     
     // TODO: Replace this URL with your Google Apps Script Web App URL
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxnR3z2I7sy2fHMJpjWroi2zLZ0zxO5PdJuTV3uqRa-f3ivhtIJHrp3IxkG_mCDqfhY8w/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxTXT-64zQ2ol51Ws15fz1cK1alqHPVu-lE3E47Tfx10ZfTomNZnuumG8zEckreUlhb/exec';
     
     const submitData = new FormData();
     submitData.append('Name', formData.name);
@@ -111,7 +131,7 @@ export default function Contact() {
   // Validation for next buttons
   const canGoToStep2 = formData.name && formData.email && formData.phone && formData.whatsapp;
   const canGoToStep3 = formData.projectTypes.length > 0 && formData.projectStatus;
-  const canGoToStep4 = formData.primaryGoal && formData.designReferences;
+  const canGoToStep4 = formData.primaryGoal;
   const canSubmit = formData.budget && formData.timeline;
 
   return (
@@ -256,8 +276,8 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-white mb-3">Do you have any design references or websites you really like? <span className="text-[#e4ff1a]">*</span></label>
-                      <textarea required placeholder="Paste URLs here and tell us what you like about them..." value={formData.designReferences} onChange={(e) => setFormData({...formData, designReferences: e.target.value})} rows={3} className="w-full bg-[#0a0a0a] border border-[#2a2a2a] px-5 py-4 text-sm text-white placeholder-[#555] focus:outline-none focus:border-[#e4ff1a] transition-colors resize-none" />
+                      <label className="block text-sm font-semibold text-white mb-3">Do you have any design references or websites you really like? <span className="text-[#777] font-normal">(Optional)</span></label>
+                      <textarea placeholder="Paste URLs here and tell us what you like about them..." value={formData.designReferences} onChange={(e) => setFormData({...formData, designReferences: e.target.value})} rows={3} className="w-full bg-[#0a0a0a] border border-[#2a2a2a] px-5 py-4 text-sm text-white placeholder-[#555] focus:outline-none focus:border-[#e4ff1a] transition-colors resize-none" />
                     </div>
                   </motion.div>
                 )}
@@ -277,7 +297,20 @@ export default function Contact() {
                       <label className="block text-sm font-semibold text-white mb-4">What is your estimated budget? <span className="text-[#e4ff1a]">*</span></label>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {budgetOptions.map(option => (
-                          <button key={option} type="button" onClick={() => setFormData({...formData, budget: option})} className={`px-4 py-3 text-xs font-mono tracking-wider uppercase transition-all duration-300 border ${formData.budget === option ? 'bg-[#e4ff1a] text-[#0a0a0a] border-[#e4ff1a] font-bold' : 'bg-transparent text-[#777] border-[#2a2a2a] hover:border-[#e4ff1a]/50 hover:text-white'}`}>{option}</button>
+                          <button 
+                            key={option.id} 
+                            type="button" 
+                            onClick={() => setFormData({...formData, budget: option.value})} 
+                            className={`px-4 py-4 text-xs font-mono tracking-wider transition-all duration-300 border flex flex-col items-start gap-1 ${formData.budget === option.value ? 'bg-[#e4ff1a] text-[#0a0a0a] border-[#e4ff1a]' : 'bg-transparent text-[#777] border-[#2a2a2a] hover:border-[#e4ff1a]/50 hover:text-white'}`}
+                          >
+                            <span className="uppercase font-bold">{option.label}</span>
+                            {option.price && (
+                              <div className="flex items-center gap-2 mt-1">
+                                <span className={`line-through opacity-60 ${formData.budget === option.value ? 'text-[#0a0a0a]' : 'text-[#555]'}`}>{option.originalPrice}</span>
+                                <span className={`font-bold ${formData.budget === option.value ? 'text-[#0a0a0a]' : 'text-[#e4ff1a]'}`}>{option.price}</span>
+                              </div>
+                            )}
+                          </button>
                         ))}
                       </div>
                     </div>

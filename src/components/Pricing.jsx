@@ -10,7 +10,7 @@ const plans = [
     originalPrice: '10,000 LKR',
     period: '',
     description: 'Perfect for small businesses getting started online.',
-    features: ['1 Page Landing Site', 'Responsive Design', 'Basic SEO Setup', 'Email Support'],
+    features: ['3 Page Landing Site', 'Responsive Design', 'Basic SEO Setup', 'Email Support'],
     cta: 'Get Started',
     highlighted: false,
   },
@@ -21,7 +21,7 @@ const plans = [
     originalPrice: '20,000 LKR',
     period: '',
     description: 'Everything you need to grow your digital presence.',
-    features: ['Up to 5 Pages', 'Premium Animations', 'Advanced SEO', 'Priority Support', 'Custom Domain'],
+    features: ['Up to 10 Pages', 'Premium Animations', 'Advanced SEO', 'Priority Support', 'Custom Domain'],
     cta: 'Choose Pro',
     highlighted: true,
     badge: 'Most Popular',
@@ -65,15 +65,12 @@ export default function Pricing() {
         {plans.map((plan, index) => (
           <motion.div
             key={plan.name}
-            className={`relative p-8 md:p-10 flex flex-col transition-all duration-500 ${
-              index < plans.length - 1 ? 'border-b md:border-b-0 md:border-r border-[#2a2a2a]' : ''
-            } ${
-              plan.highlighted
+            className={`relative p-8 md:p-10 flex flex-col transition-all duration-500 ${index < plans.length - 1 ? 'border-b md:border-b-0 md:border-r border-[#2a2a2a]' : ''
+              } ${plan.highlighted
                 ? 'bg-[#111] stripe-pattern'
                 : 'bg-transparent hover:bg-[#111]/50'
-            } ${
-              hoveredIndex === index ? 'z-10' : ''
-            }`}
+              } ${hoveredIndex === index ? 'z-10' : ''
+              }`}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
@@ -128,12 +125,20 @@ export default function Pricing() {
       </div>
 
       {/* Bottom note */}
-      <div className="mt-8 flex items-center justify-center gap-3">
-        <div className="h-[1px] w-12 bg-[#2a2a2a]" />
-        <span className="text-[0.6rem] font-mono tracking-[0.2em] uppercase text-[#444]">
-          All plans include free consultation
-        </span>
-        <div className="h-[1px] w-12 bg-[#2a2a2a]" />
+      <div className="mt-16 bg-[#111] border border-[#2a2a2a] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+        <div className="absolute top-0 left-0 w-2 h-full bg-[#e4ff1a]" />
+        <div>
+          <h4 className="text-xl font-bold text-white mb-2">Need a custom quote or have more details?</h4>
+          <p className="text-[#888] font-mono text-sm max-w-2xl">
+            Fill out our project discovery form below. Our team reviews submissions constantly and will connect with you <span className="text-[#e4ff1a] font-bold">within 2 hours</span>.
+          </p>
+        </div>
+        <a 
+          href="#contact" 
+          className="shrink-0 px-6 py-4 bg-[#2a2a2a] text-white font-mono text-xs font-bold tracking-[0.15em] uppercase hover:bg-[#e4ff1a] hover:text-[#0a0a0a] transition-colors"
+        >
+          Fill The Form
+        </a>
       </div>
     </section>
   );

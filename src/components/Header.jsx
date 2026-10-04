@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import LanguageSelector from './LanguageSelector';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,30 +28,32 @@ export default function Header() {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-1 items-center">
+        <nav className="hidden lg:flex items-center flex-nowrap whitespace-nowrap">
           {navItems.map((item, i) => (
             <a
               key={item}
               href={`#${item.toLowerCase().replace(' ', '-')}`}
-              className="relative px-5 py-2 text-xs font-mono tracking-[0.15em] uppercase text-[#999] hover:text-[#e4ff1a] transition-colors duration-300 group"
+              className="relative px-3 xl:px-5 py-2 text-[10px] xl:text-xs font-mono tracking-[0.1em] xl:tracking-[0.15em] uppercase text-[#999] hover:text-[#e4ff1a] transition-colors duration-300 group shrink-0"
             >
-              <span className="text-[#444] mr-1.5 font-mono">0{i + 1}</span>
+              <span className="text-[#444] mr-1 font-mono">0{i + 1}</span>
               {item}
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-[#e4ff1a] transition-all duration-300 group-hover:w-3/4" />
             </a>
           ))}
-          <div className="ml-4 pl-4 border-l border-[#2a2a2a]">
+          <div className="ml-1 xl:ml-2 pl-3 xl:pl-4 border-l border-[#2a2a2a] flex items-center gap-2 xl:gap-4 shrink-0">
             <a href="#contact">
-              <button className="px-5 py-2 text-xs font-mono tracking-[0.15em] uppercase bg-[#e4ff1a] text-[#0a0a0a] font-bold hover:bg-[#d4ef10] transition-colors duration-300">
+              <button className="px-3 xl:px-5 py-2 text-[10px] xl:text-xs font-mono tracking-[0.1em] xl:tracking-[0.15em] uppercase bg-[#e4ff1a] text-[#0a0a0a] font-bold hover:bg-[#d4ef10] transition-colors duration-300 whitespace-nowrap">
                 Start Project
               </button>
             </a>
+            <div id="google_translate_element" className="!hidden"></div>
+            <LanguageSelector />
           </div>
         </nav>
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden text-[#999] hover:text-[#e4ff1a] transition-colors"
+          className="lg:hidden text-[#999] hover:text-[#e4ff1a] transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -62,7 +65,7 @@ export default function Header() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-[#0a0a0a] border-t border-[#2a2a2a] px-6 pb-6"
+          className="lg:hidden bg-[#0a0a0a] border-t border-[#2a2a2a] px-6 pb-6"
         >
           {navItems.map((item, i) => (
             <a

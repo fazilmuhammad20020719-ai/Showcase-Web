@@ -249,3 +249,95 @@ body::after {
 .line-draw {
   animation: drawLine 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+/* ── Google Translate Overrides ── */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+div#goog-gt-,
+.goog-text-highlight {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+body {
+    top: 0px !important;
+    position: static !important;
+}
+/* Hide only the TOP-LEVEL banner bar, not the widget */
+body > .skiptranslate {
+    display: none !important;
+}
+body > .skiptranslate iframe {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    visibility: hidden !important;
+}
+/* Keep ONLY the dropdown widget visible */
+#google_translate_element .skiptranslate,
+#google_translate_element .goog-te-gadget {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+}
+.goog-te-gadget {
+    color: transparent !important;
+    font-size: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+/* Hide the "Powered by Google" text and logo aggressively */
+.goog-te-gadget > span, .goog-logo-link {
+    display: none !important;
+}
+.goog-te-gadget .goog-te-combo {
+    color: #999 !important;
+    background-color: #0a0a0a !important;
+    border: 1px solid #2a2a2a !important;
+    padding: 8px 12px !important;
+    padding-right: 32px !important;
+    border-radius: 0px !important;
+    font-family: var(--font-mono) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    outline: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    transition: all 0.3s ease !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23999999%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 10px center !important;
+}
+.goog-te-gadget .goog-te-combo:hover {
+    color: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23e4ff1a%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E") !important;
+}
+.goog-te-gadget .goog-te-combo option {
+    background-color: #111 !important;
+    color: #fff !important;
+}
+
+/* Language selector custom scrollbar */
+.custom-lang-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-lang-scroll::-webkit-scrollbar-track {
+    background: #111;
+}
+.custom-lang-scroll::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 2px;
+}
+.custom-lang-scroll::-webkit-scrollbar-thumb:hover {
+    background: #e4ff1a;
+}

@@ -12,7 +12,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['Home', 'Showcase', 'About', 'Hire Us'];
+  const navItems = ['Home', 'Showcase', 'About', 'Contact'];
 
   return (
     <header
@@ -40,9 +40,11 @@ export default function Header() {
             </a>
           ))}
           <div className="ml-4 pl-4 border-l border-[#2a2a2a]">
-            <button className="px-5 py-2 text-xs font-mono tracking-[0.15em] uppercase bg-[#e4ff1a] text-[#0a0a0a] font-bold hover:bg-[#d4ef10] transition-colors duration-300">
-              Start Project
-            </button>
+            <a href="#contact">
+              <button className="px-5 py-2 text-xs font-mono tracking-[0.15em] uppercase bg-[#e4ff1a] text-[#0a0a0a] font-bold hover:bg-[#d4ef10] transition-colors duration-300">
+                Start Project
+              </button>
+            </a>
           </div>
         </nav>
 

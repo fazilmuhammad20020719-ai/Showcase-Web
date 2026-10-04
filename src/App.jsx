@@ -3,7 +3,9 @@ import Preloader from './components/Preloader';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Showcase from './components/Showcase';
+import About from './components/About';
 import Pricing from './components/Pricing';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
@@ -26,7 +28,9 @@ function App() {
       <main className="relative z-10 pt-28 pb-24">
         <Hero isLoading={isLoading} />
         <Showcase isLoading={isLoading} />
+        <About />
         <Pricing />
+        <Contact />
       </main>
 
       <Footer />

@@ -42,7 +42,7 @@ export default function Pricing() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section id="pricing" className="max-w-7xl mx-auto px-6 py-32">
+    <section id="about" className="max-w-7xl mx-auto px-6 py-32">
       {/* Section header */}
       <div className="mb-20">
         <div className="flex items-center gap-4 mb-6">
@@ -122,16 +122,7 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <button
-              className={`w-full py-4 font-mono text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 flex items-center justify-center gap-2 group ${
-                plan.highlighted
-                  ? 'bg-[#e4ff1a] text-[#0a0a0a] hover:bg-[#d4ef10]'
-                  : 'border-2 border-[#2a2a2a] text-[#999] hover:border-[#e4ff1a] hover:text-[#e4ff1a]'
-              }`}
-            >
-              {plan.cta}
-              <ArrowUpRight size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </button>
+
           </motion.div>
         ))}
       </div>

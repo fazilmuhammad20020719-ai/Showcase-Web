@@ -10,7 +10,7 @@ export default function Hero({ isLoading }) {
   ];
 
   return (
-    <section className="relative max-w-7xl mx-auto px-6 mb-24">
+    <section id="home" className="relative max-w-7xl mx-auto px-6 mb-24">
       {/* Top tag line */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -56,17 +56,17 @@ export default function Hero({ isLoading }) {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="flex flex-col sm:flex-row justify-center gap-4 mb-20"
         >
-          <button className="group relative px-8 py-4 bg-[#e4ff1a] text-[#0a0a0a] font-bold text-sm tracking-[0.1em] uppercase font-mono transition-all duration-300 hover:bg-[#d4ef10] flex items-center justify-center gap-2">
+          <a href="#showcase" className="group relative px-8 py-4 bg-[#e4ff1a] text-[#0a0a0a] font-bold text-sm tracking-[0.1em] uppercase font-mono transition-all duration-300 hover:bg-[#d4ef10] flex items-center justify-center gap-2">
             Explore Demos
             <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             {/* Corner notch */}
             <span className="absolute top-0 right-0 w-3 h-3 bg-[#0a0a0a]" style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }} />
-          </button>
+          </a>
 
-          <button className="group px-8 py-4 border-2 border-[#2a2a2a] text-[#999] font-mono text-sm tracking-[0.1em] uppercase hover:border-[#e4ff1a] hover:text-[#e4ff1a] transition-all duration-300 flex items-center justify-center gap-2">
+          <a href="#contact" className="group px-8 py-4 border-2 border-[#2a2a2a] text-[#999] font-mono text-sm tracking-[0.1em] uppercase hover:border-[#e4ff1a] hover:text-[#e4ff1a] transition-all duration-300 flex items-center justify-center gap-2">
             Contact Us
             <span className="w-4 h-[1px] bg-current transition-all group-hover:w-6" />
-          </button>
+          </a>
         </motion.div>
       </div>
 

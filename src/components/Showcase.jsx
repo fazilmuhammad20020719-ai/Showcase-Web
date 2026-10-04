@@ -6,15 +6,18 @@ import { categories, demos } from '../data';
 export default function Showcase({ isLoading }) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [hoveredId, setHoveredId] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const filteredDemos = activeCategory === 'All'
     ? demos
     : demos.filter(demo => demo.category === activeCategory);
 
+  const displayedDemos = filteredDemos.slice(0, visibleCount);
+
   return (
     <>
       {/* Section header */}
-      <section className="max-w-7xl mx-auto px-6 mb-6 mt-16">
+      <section id="showcase" className="max-w-7xl mx-auto px-6 mb-6 mt-16">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isLoading ? 0 : 1 }}
@@ -33,7 +36,10 @@ export default function Showcase({ isLoading }) {
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setActiveCategory(category)}
+                onClick={() => {
+                  setActiveCategory(category);
+                  setVisibleCount(6);
+                }}
                 className={`px-5 py-2 text-xs font-mono tracking-[0.12em] uppercase transition-all duration-300 border ${
                   activeCategory === category
                     ? 'bg-[#e4ff1a] text-[#0a0a0a] border-[#e4ff1a] font-bold'
@@ -50,17 +56,17 @@ export default function Showcase({ isLoading }) {
         <div className="flex items-center gap-3 mb-8">
           <div className="h-[1px] flex-1 bg-[#2a2a2a]" />
           <span className="text-[0.6rem] font-mono tracking-[0.2em] uppercase text-[#555]">
-            Showing {filteredDemos.length} {activeCategory === 'All' ? 'projects' : activeCategory.toLowerCase()}
+            Showing {displayedDemos.length} of {filteredDemos.length} {activeCategory === 'All' ? 'projects' : activeCategory.toLowerCase()}
           </span>
           <div className="h-[1px] flex-1 bg-[#2a2a2a]" />
         </div>
       </section>
 
       {/* Grid */}
-      <section className="max-w-7xl mx-auto px-6 min-h-[60vh]">
-        <motion.div layout className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <section className="max-w-7xl mx-auto px-6 min-h-[60vh] flex flex-col items-center">
+        <motion.div layout className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
           <AnimatePresence mode="popLayout">
-            {filteredDemos.map((demo, index) => (
+            {displayedDemos.map((demo, index) => (
               <motion.div
                 key={demo.id}
                 layout
@@ -125,6 +131,17 @@ export default function Showcase({ isLoading }) {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {visibleCount < filteredDemos.length && (
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-12 px-8 py-3 bg-transparent border border-[#2a2a2a] text-[#777] font-mono text-sm tracking-[0.15em] uppercase hover:border-[#e4ff1a]/50 hover:text-[#e4ff1a] transition-all duration-300"
+            onClick={() => setVisibleCount(prev => prev + 6)}
+          >
+            See More Projects
+          </motion.button>
+        )}
       </section>
 
       {/* Infinite Marquee */}
